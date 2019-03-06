@@ -20,12 +20,12 @@
 
 ## 3.1 BIOS
 -  x86中BIOS从磁盘读入的第一个扇区是是什么内容？为什么没有直接读入操作系统内核映像？
-* BIOS读取硬盘的0磁头、0柱面、1扇区的内容，在启动硬盘时，文件系统没有建立，并且一个硬盘可能存在多个分区，每个都可能有一个操作系统，无法判断从哪个操作系统启动，所以BIOS无法直接启动操作系统。
+  * BIOS读取硬盘的0磁头、0柱面、1扇区的内容，在启动硬盘时，文件系统没有建立，并且一个硬盘可能存在多个分区，每个都可能有一个操作系统，无法判断从哪个操作系统启动，所以BIOS无法直接启动操作系统。
 - 比较UEFI和BIOS的区别。
-* 统一可扩展固件接口 (Unified Extensible Firmware Interface, UEFI) 是一种个人电脑系统规格，用来定义操作系统与系统固件之间的软件界面，作为BIOS的替代方案。
-* 与BIOS相比，UEFI编码99%都是由C语言完成
-* UEFI弥补BIOS对新硬件的支持不足的问题
-* UEFI启动的安全性更强，启动配置更灵活，支持容量更大
+  * 统一可扩展固件接口 (Unified Extensible Firmware Interface, UEFI) 是一种个人电脑系统规格，用来定义操作系统与系统固件之间的软件界面，作为BIOS的替代方案。
+  * 与BIOS相比，UEFI编码99%都是由C语言完成
+  * UEFI弥补BIOS对新硬件的支持不足的问题
+  * UEFI启动的安全性更强，启动配置更灵活，支持容量更大
 - 理解rcore中的Berkeley BootLoader (BBL)的功能。
 
 ## 3.2 系统启动流程
@@ -38,15 +38,15 @@
 
 ## 3.3 中断、异常和系统调用比较
 - 什么是中断、异常和系统调用？
-* 中断是外部意外的响应，异常是指令执行意外的响应，系统调用是系统调用指令的响应。
+  * 中断是外部意外的响应，异常是指令执行意外的响应，系统调用是系统调用指令的响应。
 -  中断、异常和系统调用的处理流程有什么异同？
-* 相同：都会进入异常服务例程，切换为内核态。
-* 不同：中断是外部设备引起的，异常和系统调用是应用程序引起的。中断是异步的，异常是同步的，系统调用异步和同步都可以。
+  * 相同：都会进入异常服务例程，切换为内核态。
+  * 不同：中断是外部设备引起的，异常和系统调用是应用程序引起的。中断是异步的，异常是同步的，系统调用异步和同步都可以。
 - 以ucore/rcore lab8的answer为例，ucore的系统调用有哪些？大致的功能分类有哪些？
-* 进程管理：fork/exit/wait/exec/yield/kill/getpid/sleep
-* 文件操作：open/close/read/write/seek/fstat/fsync/getcwd/getdirentry/dup
-* 内存管理：pgdir
-* 外设输出：putc
+  * 进程管理：fork/exit/wait/exec/yield/kill/getpid/sleep
+  * 文件操作：open/close/read/write/seek/fstat/fsync/getcwd/getdirentry/dup
+  * 内存管理：pgdir
+  * 外设输出：putc
 ## 3.4 linux系统调用分析
 - 通过分析[lab1_ex0](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex0.md)了解Linux应用的系统调用编写和含义。(仅实践，不用回答)
 - 通过调试[lab1_ex1](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex1.md)了解Linux应用的系统调用执行过程。(仅实践，不用回答)
